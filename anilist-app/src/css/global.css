@@ -1,0 +1,4 @@
+.variantHover:hover .hoveredIcon {
+  color: #83ffe6;
+  transition: 0.5s;
+}

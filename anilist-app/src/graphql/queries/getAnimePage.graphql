@@ -1,0 +1,62 @@
+query getAnimePage(
+  $id: Int
+  $page: Int
+  $perPage: Int
+  $search: String
+  $season: MediaSeason
+  $seasonYear: Int
+  $sort: [MediaSort]
+  $type: MediaType
+) {
+  Page(page: $page, perPage: $perPage) {
+    pageInfo {
+      total
+      currentPage
+      lastPage
+      hasNextPage
+      perPage
+    }
+    media(
+      id: $id
+      search: $search
+      season: $season
+      sort: $sort
+      type: $type
+      seasonYear: $seasonYear
+    ) {
+      id
+      title {
+        english
+        romaji
+      }
+      genres
+      averageScore
+      studios {
+        nodes {
+          name
+        }
+      }
+      episodes
+      format
+      season
+      coverImage {
+        extraLarge
+        large
+        medium
+        color
+      }
+      nextAiringEpisode {
+        episode
+        timeUntilAiring
+      }
+      airingSchedule {
+        edges {
+          node {
+            episode
+            timeUntilAiring
+          }
+        }
+      }
+    }
+  }
+}
