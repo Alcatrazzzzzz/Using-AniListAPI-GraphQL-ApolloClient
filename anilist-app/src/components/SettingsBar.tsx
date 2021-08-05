@@ -1,14 +1,14 @@
 import { Flex, Text, Wrap } from "@chakra-ui/layout";
 import { Icon } from "@chakra-ui/react";
 import { AnimateSharedLayout, motion } from "framer-motion";
-import React, { useState } from "react";
+import React from "react";
 import { BiSearch } from "react-icons/bi";
 import { FaTags } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import { MediaFormat, MediaSeason } from "../generated/graphql";
+import { Settings } from "../utils/types";
 import { deleteArrayItem } from "../utils/utils";
 import { SettingsField } from "./SettingsField";
-import { Settings } from "../utils/types";
 
 interface SettingsBarProps {
   genres?: [string];
