@@ -1,6 +1,8 @@
 import { gql } from "@apollo/client";
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Flex } from "@chakra-ui/react";
+import React, { useState } from "react";
 import { Container } from "../components/Container";
+import { ItemBlock } from "../components/ItemBlock";
 import { NavBar } from "../components/NavBar";
 import { SettingsBar } from "../components/SettingsBar";
 import {
@@ -10,11 +12,9 @@ import {
   MediaType,
   useGetAnimePageQuery,
 } from "../generated/graphql";
-import { client } from "./_app";
 import { Settings } from "../utils/types";
-import { Flex } from "@chakra-ui/react";
-import { ItemBlock } from "../components/ItemBlock";
 import { calculateNextSeason, getCurrentSeason } from "../utils/utils";
+import { client } from "./_app";
 
 interface IndexProps {
   genreCollection: [string];
