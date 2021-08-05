@@ -21,10 +21,7 @@ interface IndexProps {
   mediaTagCollection: any;
 }
 
-const Index: React.FC<IndexProps> = ({
-  genreCollection,
-  mediaTagCollection,
-}) => {
+const Index: React.FC<IndexProps> = ({ genreCollection }) => {
   const [settings, setSettings]: [Settings, any] = useState({
     type: "ANIME",
     search: [""],
