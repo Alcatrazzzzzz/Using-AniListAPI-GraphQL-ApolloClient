@@ -1,3 +1,6 @@
+import { MediaFormat } from "../generated/graphql";
+import { Settings } from "./types";
+
 export const textCutter = (str: string, endNumber: number): string => {
   if (endNumber > str.length) return str;
   return str.slice(0, endNumber) + "..";
@@ -29,4 +32,28 @@ export const calculateSmileType = (raiting: number | undefined | null) => {
   if (raiting > 0 && raiting <= 50) return 1;
   if (raiting > 50 && raiting <= 70) return 2;
   if (raiting > 70) return 3;
+};
+
+export const disableScroll = () => {
+  document.body.classList.add("stop-scrolling");
+};
+
+export const enableScroll = () => {
+  document.body.classList.remove("stop-scrolling");
+};
+
+export const isAnySettings = (obj: Settings) => {
+  for (let key in obj) {
+    if (key === "type") continue;
+    if (key === "search" && obj[key][0]) return true;
+    if (key !== "search" && obj[key].length > 0) return true;
+  }
+
+  return false;
+};
+
+export const convertFormatsBack = (formats: string[]) => {
+  return formats.map((elem) => {
+    return (MediaFormat as any)[elem === "TV" ? "TV" : elem];
+  });
 };

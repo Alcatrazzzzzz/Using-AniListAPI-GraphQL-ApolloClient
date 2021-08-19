@@ -7,6 +7,7 @@ query getAnimePage(
   $seasonYear: Int
   $sort: [MediaSort]
   $type: MediaType
+  $format_in: [MediaFormat]
 ) {
   Page(page: $page, perPage: $perPage) {
     pageInfo {
@@ -23,6 +24,7 @@ query getAnimePage(
       sort: $sort
       type: $type
       seasonYear: $seasonYear
+      format_in: $format_in
     ) {
       id
       title {

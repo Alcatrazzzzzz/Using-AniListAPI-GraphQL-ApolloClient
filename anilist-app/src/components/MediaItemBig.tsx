@@ -40,8 +40,11 @@ export const MediaItemBig: React.FC<MediaItemBigProps> = ({
   const smileType = calculateSmileType(data?.averageScore);
 
   const genresList = [];
+
   if (data?.genres) {
-    for (let i = 0; i < 3; i++) {
+    const genreAmount = data?.genres.length > 3 ? 3 : data.genres.length;
+
+    for (let i = 0; i < genreAmount; i++) {
       genresList.push(
         <Text
           key={i}
@@ -98,7 +101,7 @@ export const MediaItemBig: React.FC<MediaItemBigProps> = ({
                       data.nextAiringEpisode.timeUntilAiring * 1000,
                       { compact: true, verbose: true }
                     )}`
-                  : null}
+                  : ``}
               </Text>
               {data?.averageScore ? (
                 <>

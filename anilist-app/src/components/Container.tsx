@@ -13,7 +13,7 @@ export const Container: React.FC<ContainerProps> = ({
   alignItems = "unset",
 }) => {
   return (
-    <Flex mx="auto" flexDirection={flexDir} w="74%" alignItems={alignItems}>
+    <Flex mx="auto" flexDirection={flexDir} w="1200px" alignItems={alignItems}>
       {children}
     </Flex>
   );
